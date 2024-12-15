@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- main css styles file -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- todolist app css styles -->
+    <link rel="stylesheet" href="css/pomodoro.css" />
+    <!-- botsrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="icon" href="imgs/pomodoro.png" type="image.png" />
+    <title>Pomodoro</title>
+  </head>
+  <body>
+    <!-- start sidebar -->
+
+    <section class="sidebar small">
+      <nav>
+        <ul class="head ms-0 ps-0">
+          <li class="d-flex align-items-center justify-content-between">
+            <a href="index.html"
+              ><img src="imgs/sword.png" alt="" />
+              <p>Sword</p>
+            </a>
+            <button class="alt-menu-btn btn btn-outline-light">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </li>
+        </ul>
+
+        <ul class="links ms-0 ps-0">
+          <li>
+            <a href="todoList.html"
+              ><img src="imgs/checklist.png" alt="" />
+              <p>Sword Todo</p></a
+            >
+          </li>
+          <li>
+            <a href="pomodoro.html"
+              ><img src="imgs/pomodoro.png" alt="" />
+              <p>Sword Pomodoro</p></a
+            >
+          </li>
+          <li>
+            <a href="swordKeep.html"
+              ><img src="imgs/post-it.png" alt="" />
+              <p>Sword Notes</p></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- end sidebar -->
+    <!-- start main -->
+    <main class="full">
+      <header>
+        <button class="btn btn-primary menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h2>Pomodoro</h2>
+        <audio
+          src="sounds/level-win-6416.mp3"
+          class="finish-timer-sound d-none"
+          controls
+        ></audio>
+        <button class="btn btn-primary ms-auto gears" title="Pomo Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </header>
+
+      <div class="content row position-relative">
+        <div class="pomo col-md-6 border-end position-relative">
+          <!-- pomo title -->
+          <div
+            class="pomo-title d-flex align-items-center justify-content-center"
+          >
+            <p class="title text-capitalize lh-0 m-0 me-2">focus</p>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+          <!--pomo timer  -->
+          <div
+            class="pomo-timer mt-5 p-5 text-center d-flex align-items-center justify-content-center"
+          >
+            <div
+              class="pomo-timer-screen ms-auto me-auto d-flex align-items-center justify-content-center position-relative"
+            >
+              <button class="screen-btn fs-1">
+                <p><span class="min">25</span>:<span class="sec">00</span></p>
+              </button>
+              <div class="timer-handler d-none">
+                <form action="">
+                  <input
+                    type="number"
+                    name=""
+                    id=""
+                    autofocus
+                    placeholder="5"
+                    min="5"
+                    max="180"
+                  /><span>mins</span>
+                </form>
+                <p>pomo duration between 5~180 minutes</p>
+                <div class="timer-handler-btns">
+                  <button class="btn btn-primary ok-btn">ok</button
+                  ><button class="btn btn-primary cancel-btn">cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- pomo buttons -->
+          <div class="pomo-btns">
+            <button
+              class="timer-btn btn btn-primary text-capitalize rounded-pill"
+              data-state="start"
+            >
+              start
+            </button>
+            <button
+              class="btn btn-primary text-capitalize rounded-pill mt-2 d-none end-btn"
+              data-state="end"
+            >
+              end
+            </button>
+          </div>
+          <!-- relax pomo -->
+          <div class="relax-pomo position-absolute top-50 start-50 d-none">
+            <div class="relax-pomo-content my-auto">
+              <div class="img relax-timer position-relative">
+                <img src="imgs/OIP (2).jfif" alt="" class="" />
+                <p class="relax-timer-screen">00:00</p>
+              </div>
+              <span class="relax-period text-capitalize text-center fs-5"
+                >relax for</span
+              >
+              <div
+                class="relax-buttons d-flex align-items-center justify-content-center flex-column mt-2"
+              >
+                <button
+                  class="btn btn-primary text-capitalize"
+                  break-data="short"
+                >
+                  short break
+                </button>
+                <button
+                  class="btn btn-primary text-capitalize d-none"
+                  break-data="long"
+                >
+                  long break
+                </button>
+                <button
+                  class="btn btn-secondary text-capitalize"
+                  break-data="cancel"
+                >
+                  cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="records d-none d-md-block col-md-6">
+          <div class="overview">
+            <h3 class="head text-capitalize fs-5 fw-medium">overview</h3>
+            <div class="overview-content">
+              <div class="daily-pomos">
+                <!-- <span class="head">today's pomos</span> -->
+                <!-- <p class="value">4</p> -->
+              </div>
+              <div class="daily-focaus-duration">
+                <!-- <span class="head">today's focus duration</span> -->
+                <!-- <p class="value"> -->
+                <!-- <span class="h">1</span>h <span class="m">55</span>m -->
+                <!-- </p> -->
+              </div>
+              <div class="total-pomos">
+                <!-- <span class="head">total pomos</span> -->
+                <!-- <p class="value">227</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="focus-record text-start pb-5">
+            <!-- <h3
+              class="text-capitalize fs-5 fw-medium mt-4 position-sticky top-0 py-2"
+            >
+              focus records
+            </h3> -->
+            <!-- <div class="record my-4">
+              <span class="record-date text-black-50 fw-bold">november 7</span>
+              <ul class="p-0 pt-1">
+                <li>
+                  <img src="imgs/pomodoro.png" alt="" /><span
+                    class="time text-black-50"
+                    >5:40pm - 6:50pm</span
+                  >
+                  <span class="duration text-black-50">60m</span>
+                </li>
+                <li>
+                  <img src="imgs/pomodoro.png" alt="" /><span
+                    class="time text-black-50"
+                    >5:40pm - 6:50pm</span
+                  >
+                  <span class="duration text-black-50">60m</span>
+                </li>
+                <li>
+                  <img src="imgs/pomodoro.png" alt="" /><span
+                    class="time text-black-50"
+                    >5:40pm - 6:50pm</span
+                  >
+                  <span class="duration text-black-50">60m</span>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+        <!--  -->
+        <div class="pomo-settings d-none">
+          <div
+            class="settings-content p-3 d-flex align-content-center justify-content-center position-absolute top-50 start-50"
+          >
+            <div class="timer-options text-start text-capitalize">
+              <h5>timer options</h5>
+              <ul class="p-0 w-100">
+                <li
+                  class="d-flex align-items-center justify-content-between w-100 mb-1"
+                >
+                  <p class="text-capitalize text-nowrap m-0">pomo duration</p>
+                  <form
+                    action=""
+                    class="d-flex align-content-center justify-content-end w-50"
+                  >
+                    <input
+                      type="number"
+                      class="durtaion-input w-50 me-2 ps-1"
+                    /><span>mins</span>
+                  </form>
+                </li>
+
+                <li
+                  class="d-flex align-items-center justify-content-between w-100 mb-1"
+                >
+                  <p class="text-capitalize text-nowrap m-0">short break</p>
+                  <form
+                    action=""
+                    class="d-flex align-content-center justify-content-end w-50"
+                  >
+                    <input
+                      type="number"
+                      class="sh-break-input w-50 me-2 ps-1"
+                    /><span>mins</span>
+                  </form>
+                </li>
+
+                <li
+                  class="d-flex align-items-center justify-content-between w-100 mb-1"
+                >
+                  <p class="text-capitalize text-nowrap m-0">long break</p>
+                  <form
+                    action=""
+                    class="d-flex align-content-center justify-content-end w-50"
+                  >
+                    <input
+                      type="number"
+                      class="lg-break-input w-50 me-2 ps-1"
+                    /><span>mins</span>
+                  </form>
+                </li>
+                <li
+                  class="d-flex align-items-center justify-content-between w-100 mb-1"
+                >
+                  <p class="text-capitalize text-nowrap m-0">
+                    pomos per long break
+                  </p>
+                  <form
+                    action=""
+                    class="d-flex align-content-center justify-content-end w-50"
+                  >
+                    <input
+                      type="number"
+                      class="lg-break-dutations-input w-50 me-2 ps-1"
+                    /><span>mins</span>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- end main  -->
+
+    <script src="js/main.js"></script>
+    <script src="js/timer/pomodoro.js"></script>
+    <script src="js/timer/pomoTimer.js"></script>
+    <script src="js/timer/records.overview.js"></script>
+    <script src="js/timer/breaks.js"></script>
+    <script src="js/timer/pomos.settings.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

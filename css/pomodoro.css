@@ -1,0 +1,284 @@
+@media (max-width: 399px) {
+  .sidebar {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 232323;
+    height: 100%;
+    display: block;
+    transition: all ease 0.3s;
+  }
+  .sidebar.small {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    transition: all ease 0.3s;
+  }
+  .sidebar ~ main {
+    width: 100%;
+    margin: 0;
+  }
+  .sidebar.small ~ main.full {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+@media (min-width: 400px) and (max-width: 1100px) {
+  .sidebar {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 232323;
+    height: 100%;
+  }
+  .sidebar.small {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .sidebar ~ main {
+    width: 100%;
+    margin: 0;
+  }
+  .sidebar.small ~ main.full {
+    width: calc(100% - 50px);
+    margin-left: 50px;
+  }
+}
+main {
+  height: calc(100vh - 60px);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+main .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding-right: 10px;
+}
+
+.pomo {
+  min-height: 100%;
+}
+.pomo-title {
+  cursor: pointer;
+}
+.pomo-timer-screen {
+  border: 2px solid gray;
+}
+@media (max-width: 400px) {
+  .pomo-timer-screen {
+    min-width: 200px;
+    min-height: 200px;
+    border-radius: 60%;
+  }
+}
+@media (min-width: 401px) and (max-width: 992px) {
+  .pomo-timer-screen {
+    min-width: 250px;
+    min-height: 250px;
+    border-radius: 50%;
+  }
+}
+@media (min-width: 993px) {
+  .pomo-timer-screen {
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: 50%;
+  }
+}
+.screen-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.pomo-btns {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.pomo-btns button {
+  width: 150px;
+  text-align: center;
+  font-size: 19px;
+}
+button.pause {
+  border: 1px solid #0d6efd;
+  background-color: transparent;
+  color: #0d6efd;
+}
+.screen-btn {
+  position: relative;
+}
+.screen-btn:disabled p {
+  opacity: 1;
+  color: black;
+}
+.timer-handler {
+  width: 250px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -5px;
+}
+.timer-handler form {
+  display: flex;
+  align-items: center;
+}
+.timer-handler form input {
+  width: 60%;
+  border: 1px solid #0d6efd;
+  outline: none;
+  margin-right: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 2px 13px;
+}
+.timer-handler p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-wrap: nowrap;
+  text-transform: capitalize;
+}
+.timer-handler-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.timer-handler-btns button {
+  width: 120px;
+  padding: 0;
+  text-transform: capitalize;
+}
+/* start pomodoro records */
+
+.records {
+  min-height: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 2323232323;
+}
+.overview {
+  text-align: left;
+}
+.overview-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+.overview-content > div {
+  background-color: #eee;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.overview-content > div span.head {
+  font-size: 15px;
+  color: #686767;
+}
+.overview-content > div p {
+  font-size: 25px;
+}
+
+.record ul li {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px 5px 0;
+}
+
+.record ul li img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.record ul li span.time {
+  font-size: 18px;
+}
+.record ul li span.duration {
+  margin-left: auto;
+}
+
+.focus-record h3 {
+  background-color: white;
+}
+
+@media (min-width: 1101px) {
+  .sidebar .alt-menu-btn {
+    display: none;
+  }
+}
+/* sidebar  */
+
+.relax-pomo {
+  transform: translateX(-50%) translateY(-55%);
+  min-height: 60%;
+  min-width: 80%;
+  background-color: #eee;
+  z-index: 3223;
+}
+
+.relax-pomo .relax-pomo-content .img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+.relax-pomo .relax-pomo-content .img img {
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.relax-pomo .relax-pomo-content .img p {
+  margin: 0;
+  font-size: 23px;
+}
+.relax-pomo .relax-pomo-content .relax-buttons button {
+  width: 150px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.pomo-settings {
+  width: 100%;
+  height: 80%;
+  background-color: #aaaaaa63;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 323233232323232;
+}
+.settings-content {
+  background-color: #fff;
+  min-height: 350px;
+  transform: translateX(-50%) translateY(-50%);
+}
+.timer-options {
+  width: 305px;
+}
